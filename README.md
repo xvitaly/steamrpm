@@ -50,7 +50,7 @@ Run rpmbuild:
 cd ~
 rpmbuild -ba steam.spec
 ```
-You will receive Steam RPM Package for GNU/Linux in <b>~/rpmbuild/RPMS/noarch/</b>.
+You will get Steam RPM Package for GNU/Linux in <b>~/rpmbuild/RPMS/noarch/</b>.
 
 Step 7
 =======
