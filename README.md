@@ -13,7 +13,7 @@ Unpack Ubuntu package by using <b>ar</b> tool:
 cd ~
 ar vx steam.deb
 ```
-You will get three files: <b>debian-binary</b>, <b>control.tar.gz</b> and <b>data.tar.gz</b>. We needs only <b>data.tar.gz</b>. All others can be deleted.
+You will get three files: <b>debian-binary</b>, <b>control.tar.gz</b> and <b>data.tar.gz</b>. We need only <b>data.tar.gz</b>. All others can be deleted.
 
 Step 3
 =======
