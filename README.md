@@ -1,4 +1,4 @@
-Step 1.
+Step 1
 ========
 Download original package for Ubuntu:
 ```
