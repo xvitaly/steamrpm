@@ -102,6 +102,9 @@ Requires: libXdamage(x86-32)
 Requires: libXinerama(x86-32)
 Requires: libXtst(x86-32)
 Requires: libXxf86vm(x86-32)
+%if 0%{?suse_version}
+Requires: SDL2(x86-32)
+%endif
 
 %description
 Steam Client for GNU/Linux
