@@ -1,6 +1,6 @@
 Name: steam
 Version: 0.1
-Release: 1
+Release: 2
 Group: Applications/Games
 BuildArch: noarch
 Source: steam.tar.gz
@@ -41,6 +41,7 @@ Steam Client for GNU/Linux
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/
 cp -fpr %_builddir/steam/* %{buildroot}
+rm -rf %{buildroot}/etc/apt/
 chmod +x %{buildroot}/usr/bin/steam
 
 %install
