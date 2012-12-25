@@ -25,7 +25,7 @@ if [ -f "$TMPATH/steam.deb" ]; then
     cp -f data.tar.gz ~/rpmbuild/SOURCES/steam.tar.gz
     
     echo Downloading SPEC file...
-    wget https://github.com/xvitaly/steamrpm/raw/master/steam.spec
+    wget http://raw.github.com/justdan96/steamrpm/patch-2/steam.spec
     
     if [ -f "$TMPATH/steam.spec" ]; then
       
