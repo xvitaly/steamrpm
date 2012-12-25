@@ -43,5 +43,7 @@ if [ -f "$TMPATH/steam.deb" ]; then
   fi
 fi
 
+tree $TMPPATH
+
 echo Executting cleanup...
 rm -rf $TMPATH
