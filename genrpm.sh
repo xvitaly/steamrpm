@@ -28,10 +28,15 @@ if [ -f "$TMPATH/steam.deb" ]; then
     wget https://github.com/xvitaly/steamrpm/raw/master/steam.spec
     
     if [ -f "$TMPATH/steam.spec" ]; then
-      tar -zxvf control.tar.gz
-      if [ -f "$PWD/control" ]; then
-         sed -i "s/Version: .*/Version: `awk '/Version:/ {print $2}' control`/g" steam.spec
+      
+      if [ -f "$TMPATH/data.tar.gz" ]; then
+	tar -zxf control.tar.gz -C $TMPATH
+	if [ -f "$TMPATH/control" ]; then
+	  echo Updating version info from DEB package...
+	  sed -i "s/Version: .*/Version: `awk '/Version:/ {print $2}' control`/g" steam.spec
+	fi
       fi
+      
       echo Building package...
       rpmbuild -ba steam.spec
     fi
