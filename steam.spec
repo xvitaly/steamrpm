@@ -118,8 +118,10 @@ mkdir -p %{buildroot}/usr/
 cp -fpr %_builddir/steam/* %{buildroot}
 rm -rf %{buildroot}/etc/apt/
 chmod +x %{buildroot}/usr/bin/steam
+cp -r %{buildroot} %{getenv:TMPDIR}/buildcpy
 
 %install
+cp -r %{getenv:TMPDIR}/buildcpy %{buildroot}
 find %{buildroot} -not -type d -printf "/%%P\n" | sed '/\/man\//s/$/\*/' > manifest
 
 %files -f manifest
