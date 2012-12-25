@@ -113,15 +113,12 @@ Steam Client for GNU/Linux
 
 %build
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/
-cp -fpr %_builddir/steam/* %{buildroot}
-rm -rf %{buildroot}/etc/apt/
-chmod +x %{buildroot}/usr/bin/steam
-cp -r %{buildroot} /tmp/buildcpy
+rm -rf %_builddir/steam/etc
 
 %install
-cp -r /tmp/buildcpy/* %{buildroot}
+mkdir -p %{buildroot}/usr/
+cp -fpr %_builddir/steam/* %{buildroot}
+chmod +x %{buildroot}/usr/bin/steam
 find %{buildroot} -not -type d -printf "/%%P\n" | sed '/\/man\//s/$/\*/' > manifest
-rm -rf /tmp/buildcpy
 
 %files -f manifest
