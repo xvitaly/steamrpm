@@ -38,7 +38,7 @@ if [ -f "$TMPATH/steam.deb" ]; then
       fi
       
       echo Building package...
-      rpmbuild -ba steam.spec --buildroot=$TMPATH
+      rpmbuild -ba steam.spec --buildroot=$TMPATH/steam-root
     fi
   fi
 fi
