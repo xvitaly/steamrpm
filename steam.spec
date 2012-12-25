@@ -121,7 +121,8 @@ chmod +x %{buildroot}/usr/bin/steam
 cp -r %{buildroot} /tmp/buildcpy
 
 %install
-cp -r /tmp/buildcpy %{buildroot}
+cp -r /tmp/buildcpy/* %{buildroot}
 find %{buildroot} -not -type d -printf "/%%P\n" | sed '/\/man\//s/$/\*/' > manifest
+rm -rf /tmp/buildcpy
 
 %files -f manifest
