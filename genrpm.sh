@@ -8,7 +8,7 @@ mkdir -p $TMPATH
 cd $TMPATH
 
 echo Downloading Ubuntu package...
-wget http://media.steampowered.com/client/installer/steam.deb
+wget http://media.steampowered.com/client/installer/steam.deb -O steam.deb
 
 if [ -f "$TMPATH/steam.deb" ]; then
   echo Unpacking Ubuntu package...
