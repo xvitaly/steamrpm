@@ -7,7 +7,6 @@ Source: steam.tar.gz
 Summary: Steam Client
 URL: http://www.steampowered.com/
 License: EULA
-BuildRoot: %{_tmppath}/%{name}-root
 Vendor: Valve
 
 # Dependencies taken from SPEC by Tom Callaway <spot@fedoraproject.org>
@@ -114,12 +113,12 @@ Steam Client for GNU/Linux
 
 %build
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/
-cp -fpr %_builddir/steam/* %{buildroot}
-rm -rf %{buildroot}/etc/apt/
-chmod +x %{buildroot}/usr/bin/steam
+rm -rf %_builddir/steam/etc
 
 %install
+mkdir -p %{buildroot}/usr/
+cp -fpr %_builddir/steam/* %{buildroot}
+chmod +x %{buildroot}/usr/bin/steam
 find %{buildroot} -not -type d -printf "/%%P\n" | sed '/\/man\//s/$/\*/' > manifest
 
 %files -f manifest

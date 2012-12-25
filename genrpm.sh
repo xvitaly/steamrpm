@@ -8,7 +8,7 @@ mkdir -p $TMPATH
 cd $TMPATH
 
 echo Downloading Ubuntu package...
-wget http://media.steampowered.com/client/installer/steam.deb
+wget http://media.steampowered.com/client/installer/steam.deb -O steam.deb
 
 if [ -f "$TMPATH/steam.deb" ]; then
   echo Unpacking Ubuntu package...
@@ -25,7 +25,7 @@ if [ -f "$TMPATH/steam.deb" ]; then
     cp -f data.tar.gz ~/rpmbuild/SOURCES/steam.tar.gz
     
     echo Downloading SPEC file...
-    wget https://github.com/xvitaly/steamrpm/raw/master/steam.spec
+    wget http://raw.github.com/justdan96/steamrpm/patch-2/steam.spec
     
     if [ -f "$TMPATH/steam.spec" ]; then
       
@@ -38,7 +38,7 @@ if [ -f "$TMPATH/steam.deb" ]; then
       fi
       
       echo Building package...
-      rpmbuild -ba steam.spec
+      rpmbuild -bb steam.spec
     fi
   fi
 fi
