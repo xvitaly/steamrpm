@@ -1,6 +1,6 @@
 #!/bin/sh
 
-TMPATH=/tmp/strpmgen/
+TMPATH=/tmp/strpmgen
 
 echo Creating temporary directory for building process...
 rm -rf $TMPATH
@@ -8,7 +8,7 @@ mkdir -p $TMPATH
 cd $TMPATH
 
 echo Downloading Ubuntu package...
-wget http://media.steampowered.com/client/installer/steam.deb
+wget http://media.steampowered.com/client/installer/steam.deb -O $TMPATH/steam.deb
 
 if [ -f "$TMPATH/steam.deb" ]; then
   echo Unpacking Ubuntu package...
