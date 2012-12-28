@@ -7,6 +7,7 @@ Source: steam.tar.gz
 Summary: Steam Client
 URL: http://www.steampowered.com/
 License: EULA
+BuildRoot: %{_tmppath}/%{name}-root
 Vendor: Valve
 
 # Dependencies taken from SPEC by Tom Callaway <spot@fedoraproject.org>
