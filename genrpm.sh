@@ -1,6 +1,6 @@
 #!/bin/sh
 
-TMPATH=/tmp/strpmgen/
+TMPATH=/tmp/strpmgen
 
 echo Creating temporary directory for building process...
 rm -rf $TMPATH
