@@ -48,7 +48,7 @@ Step 6
 Run rpmbuild:
 ```
 cd ~
-rpmbuild -ba steam.spec
+rpmbuild -bb steam.spec
 ```
 You will get Steam RPM Package for GNU/Linux in <b>~/rpmbuild/RPMS/noarch/</b>.
 
