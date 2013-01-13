@@ -113,7 +113,6 @@ Steam Client for GNU/Linux
 %setup -q -c -n %{name}
 
 %build
-rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/
 cp -fpr %_builddir/steam/* %{buildroot}
 rm -rf %{buildroot}/etc/apt/
