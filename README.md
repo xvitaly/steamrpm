@@ -56,7 +56,7 @@ Step 7
 =======
 Install package. On Fedora/CentOS/RHEL:
 ```
-sudo yum -y localinstall ~/rpmbuild/RPMS/noarch/steam*
+sudo yum -y install ~/rpmbuild/RPMS/noarch/steam*
 ```
 On openSUSE:
 ```
