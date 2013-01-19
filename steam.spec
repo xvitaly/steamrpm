@@ -104,6 +104,7 @@ Requires: libXtst(x86-32)
 Requires: libXxf86vm(x86-32)
 %if 0%{?suse_version}
 Requires: SDL2(x86-32)
+Requires: Mesa-32bit
 %endif
 
 %description
