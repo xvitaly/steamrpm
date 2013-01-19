@@ -1,10 +1,7 @@
 #!/bin/sh
 
-TMPATH=/tmp/strpmgen
-
 echo Creating temporary directory for building process...
-rm -rf $TMPATH
-mkdir -p $TMPATH
+TMPATH=`mktemp -d`
 cd $TMPATH
 
 echo Downloading Ubuntu package...
