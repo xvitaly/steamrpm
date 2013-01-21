@@ -5,7 +5,11 @@ TMPATH=`mktemp -d`
 cd $TMPATH
 
 echo Downloading Ubuntu package...
+<<<<<<< HEAD
+wget http://media.steampowered.com/client/installer/steam.deb -O steam.deb
+=======
 wget http://media.steampowered.com/client/installer/steam.deb -O $TMPATH/steam.deb
+>>>>>>> upstream/master
 
 if [ -f "$TMPATH/steam.deb" ]; then
   echo Unpacking Ubuntu package...
@@ -22,7 +26,7 @@ if [ -f "$TMPATH/steam.deb" ]; then
     cp -f data.tar.gz ~/rpmbuild/SOURCES/steam.tar.gz
     
     echo Downloading SPEC file...
-    wget https://github.com/xvitaly/steamrpm/raw/master/steam.spec
+    wget http://raw.github.com/justdan96/steamrpm/patch-2/steam.spec
     
     if [ -f "$TMPATH/steam.spec" ]; then
       
@@ -35,7 +39,11 @@ if [ -f "$TMPATH/steam.deb" ]; then
       fi
       
       echo Building package...
+<<<<<<< HEAD
+      rpmbuild -bb --buildroot "`rpm --eval "%_tmppath"`/steam-root" steam.spec
+=======
       rpmbuild -bb --clean --buildroot ~/rpmbuild/BUILDROOT/steam-root steam.spec
+>>>>>>> upstream/master
     fi
   fi
 fi

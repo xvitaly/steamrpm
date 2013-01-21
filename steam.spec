@@ -104,6 +104,7 @@ Requires: libXtst(x86-32)
 Requires: libXxf86vm(x86-32)
 %if 0%{?suse_version}
 Requires: SDL2(x86-32)
+Requires: Mesa-32bit
 %endif
 
 %description
@@ -114,13 +115,18 @@ Steam Client for GNU/Linux
 
 %build
 rm -rf %{buildroot}
+rm -rf %_builddir/steam/etc
+
+%install
 mkdir -p %{buildroot}/usr/
 cp -fpr %_builddir/steam/* %{buildroot}
-rm -rf %{buildroot}/etc/apt/
 chmod +x %{buildroot}/usr/bin/steam
+<<<<<<< HEAD
+=======
 chmod +x %{buildroot}/usr/bin/steamdeps
 
 %install
+>>>>>>> upstream/master
 find %{buildroot} -not -type d -printf "/%%P\n" | sed '/\/man\//s/$/\*/' > manifest
 
 %files -f manifest
