@@ -1,6 +1,6 @@
 Name: steam
-Version: 0.1
-Release: 2
+Version: 1.0.22
+Release: 1
 Group: Applications/Games
 BuildArch: noarch
 Source: steam.tar.gz
@@ -121,6 +121,12 @@ rm -rf %_builddir/steam/etc
 mkdir -p %{buildroot}/usr/
 cp -fpr %_builddir/steam/* %{buildroot}
 chmod +x %{buildroot}/usr/bin/steam
+<<<<<<< HEAD
+=======
+chmod +x %{buildroot}/usr/bin/steamdeps
+
+%install
+>>>>>>> upstream/master
 find %{buildroot} -not -type d -printf "/%%P\n" | sed '/\/man\//s/$/\*/' > manifest
 
 %files -f manifest
