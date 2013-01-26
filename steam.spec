@@ -104,7 +104,13 @@ Requires: libXtst(x86-32)
 Requires: libXxf86vm(x86-32)
 %if 0%{?suse_version}
 Requires: SDL2(x86-32)
+%ifarch x86_64
+Requires: Mesa-32bit(x86-64)
+Requires: mozilla-nss-32bit(x86-64)
+%else
 Requires: Mesa(x86-32)
+Requires: mozilla-nss(x86-32)
+%endif
 %endif
 
 %description
