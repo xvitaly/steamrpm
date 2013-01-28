@@ -1,6 +1,6 @@
 Name: steam
 Version: 1.0.22
-Release: 1
+Release: 2
 Group: Applications/Games
 BuildArch: noarch
 Source: steam.tar.gz
@@ -10,9 +10,11 @@ License: EULA
 BuildRoot: %{_tmppath}/%{name}-root
 Vendor: Valve
 
-# Dependencies taken from SPEC by Tom Callaway <spot@fedoraproject.org>
-%if 0%{?fedora_version}
+# Distribution independent dependecies...
 Requires: libjpeg-turbo(x86-32)
+
+# Dependencies for Fedora/CentOS/RHEL (taken from SPEC by Tom Callaway <spot@fedoraproject.org>)...
+%if 0%{?fedora_version} || 0%{?rhel_version} || 0%{?centos_version}
 Requires: libcurl(x86-32) >= 7.16.2-1
 Requires: libogg(x86-32) >= 1.0
 Requires: pixman(x86-32) >= 0.24.4
@@ -83,174 +85,172 @@ Requires: libXtst(x86-32)
 Requires: libXxf86vm(x86-32)
 %if 0%{?fedora} >= 18
 Requires: libpng12(x86-32) >= 1.2.13
-Requires: mesa-libgbm(x86-32)
-Requires: mesa-libglapi(x86-32)
 Requires: systemd-libs(x86-32)
-Requires: libwayland-client(x86-32)
-Requires: libwayland-server(x86-32)
+%else
+Requires: libudev(x86-32)
 %endif
 %if 0%{?fedora} == 17
 Requires: libpng-compat(x86-32) >= 1.2.13
-Requires: mesa-libgbm(x86-32)
-Requires: mesa-libglapi(x86-32)
-Requires: libudev(x86-32)
-Requires: libwayland-client(x86-32)
-Requires: libwayland-server(x86-32)
 %endif
 %if 0%{?fedora} <= 16
 Requires: libpng >= 1.2.13
-Requires: libudev(x86-32)
+%endif
+%if 0%{?fedora} >= 17
+Requires: mesa-libgbm(x86-32)
+Requires: mesa-libglapi(x86-32)
+Requires: libwayland-client(x86-32)
+Requires: libwayland-server(x86-32)
 %endif
 %endif
 
-%if 0%{?suse_version}
+# Dependencies for openSUSE and SLES...
+%if 0%{?suse_version} || 0%{?sles_version}
 %ifarch x86_64
-Requires: Mesa-32bit
-Requires: mozilla-nss-32bit
-Requires: libcurl4-32bit >= 7.16.2-1
-Requires: libogg0-32bit >= 1.0
-Requires: libpixman-1-0-32bit >= 0.24.4
-Requires: libSDL-1_2-0-32bit >= 1.2.10
-Requires: libSDL2-2_0-0-32bit
-Requires: libtheora0-32bit >= 1.0
-Requires: libvorbis0-32bit >= 1.1.2
-Requires: glibc-32bit >= 2.15
-Requires: libcairo2-32bit >= 1.6.0
-Requires: cups-libs-32bit >= 1.4.0
-Requires: libdbus-1-3-32bit >= 1.2.14
-Requires: fontconfig-32bit >= 2.8.0
-Requires: libfreetype6-32bit >= 2.3.9
-Requires: libgcc47-32bit >= 4.1.1
-Requires: libgcrypt11-32bit >= 1.4.5
-Requires: libgdk_pixbuf-2_0-0-32bit >= 2.22.0
-Requires: libglib-2_0-0-32bit >= 2.14.0
-Requires: libgtk-2_0-0-32bit >= 2.24.0
-Requires: mozilla-nspr-32bit >= 1.8.0.10
-Requires: libopenal1-soft-32bit >= 1.13
-Requires: libpango-1_0-0-32bit >= 1.22.0
-Requires: libpulse0-32bit >= 0.99.1
-Requires: libstdc++47-32bit >= 4.6
-Requires: libX11-6-32bit >= 1.4.99.1
-Requires: libXext6-32bit
-Requires: libXfixes3-32bit
-Requires: libXi6-32bit >= 1.2.99.4
-Requires: libXrandr2-32bit >= 1.2.99.3
-Requires: libXrender1-32bit
-Requires: zlib-32bit >= 1.2.3.3
-Requires: Mesa-libIndirectGL1-32bit
-Requires: Mesa-libEGL1-32bit
-Requires: libcares2-32bit
-Requires: libasound2-32bit
-Requires: libatk-1_0-0-32bit
-Requires: libavahi-client3-32bit
-Requires: libavahi-common3-32bit
-Requires: libcom_err2-32bit
-Requires: libdrm2-32bit
-Requires: libexpat1-32bit
-Requires: libffi47-32bit
-Requires: libFLAC8-32bit
-Requires: Mesa-libGL1-32bit
-Requires: libgcrypt11-32bit
-Requires: libgnutls28-32bit
-Requires: libgpg-error0-32bit
-Requires: libgsm1-32bit
-Requires: krb5-32bit
-Requires: libharfbuzz0-32bit
-Requires: libICE6-32bit
-Requires: libicu49-32bit
-Requires: libjson0-32bit
-Requires: libkeyutils1-32bit
-Requires: libp11-kit0-32bit
-Requires: libpcre1-32bit
-Requires: libselinux1-32bit
-Requires: libSM6-32bit
-Requires: libsndfile1-32bit
-Requires: libtasn1-3-32bit
-Requires: libuuid1-32bit
-Requires: tcpd-32bit
-Requires: libXau6-32bit
-Requires: libxcb1-32bit
-Requires: libXcomposite1-32bit
-Requires: libXcursor1-32bit
-Requires: libXdamage1-32bit
-Requires: libXinerama1-32bit
-Requires: libXtst6-32bit
-Requires: libXxf86vm1-32bit
+Requires: Mesa-32bit(x86-64)
+Requires: mozilla-nss-32bit(x86-64)
+Requires: libcurl4-32bit(x86-64) >= 7.16.2-1
+Requires: libogg0-32bit(x86-64) >= 1.0
+Requires: libpixman-1-0-32bit(x86-64) >= 0.24.4
+Requires: libSDL-1_2-0-32bit(x86-64) >= 1.2.10
+Requires: libSDL2-2_0-0-32bit(x86-64)
+Requires: libtheora0-32bit(x86-64) >= 1.0
+Requires: libvorbis0-32bit(x86-64) >= 1.1.2
+Requires: glibc-32bit(x86-64) >= 2.15
+Requires: libcairo2-32bit(x86-64) >= 1.6.0
+Requires: cups-libs-32bit(x86-64) >= 1.4.0
+Requires: libdbus-1-3-32bit(x86-64) >= 1.2.14
+Requires: fontconfig-32bit(x86-64) >= 2.8.0
+Requires: libfreetype6-32bit(x86-64) >= 2.3.9
+Requires: libgcc47-32bit(x86-64) >= 4.1.1
+Requires: libgcrypt11-32bit(x86-64) >= 1.4.5
+Requires: libgdk_pixbuf-2_0-0-32bit(x86-64) >= 2.22.0
+Requires: libglib-2_0-0-32bit(x86-64) >= 2.14.0
+Requires: libgtk-2_0-0-32bit(x86-64) >= 2.24.0
+Requires: mozilla-nspr-32bit(x86-64) >= 1.8.0.10
+Requires: libopenal1-soft-32bit(x86-64) >= 1.13
+Requires: libpango-1_0-0-32bit(x86-64) >= 1.22.0
+Requires: libpulse0-32bit(x86-64) >= 0.99.1
+Requires: libstdc++47-32bit(x86-64) >= 4.6
+Requires: libX11-6-32bit(x86-64) >= 1.4.99.1
+Requires: libXext6-32bit(x86-64)
+Requires: libXfixes3-32bit(x86-64)
+Requires: libXi6-32bit(x86-64) >= 1.2.99.4
+Requires: libXrandr2-32bit(x86-64) >= 1.2.99.3
+Requires: libXrender1-32bit(x86-64)
+Requires: zlib-32bit(x86-64) >= 1.2.3.3
+Requires: Mesa-libIndirectGL1-32bit(x86-64)
+Requires: Mesa-libEGL1-32bit(x86-64)
+Requires: libcares2-32bit(x86-64)
+Requires: libasound2-32bit(x86-64)
+Requires: libatk-1_0-0-32bit(x86-64)
+Requires: libavahi-client3-32bit(x86-64)
+Requires: libavahi-common3-32bit(x86-64)
+Requires: libcom_err2-32bit(x86-64)
+Requires: libdrm2-32bit(x86-64)
+Requires: libexpat1-32bit(x86-64)
+Requires: libffi47-32bit(x86-64)
+Requires: libFLAC8-32bit(x86-64)
+Requires: Mesa-libGL1-32bit(x86-64)
+Requires: libgcrypt11-32bit(x86-64)
+Requires: libgnutls28-32bit(x86-64)
+Requires: libgpg-error0-32bit(x86-64)
+Requires: libgsm1-32bit(x86-64)
+Requires: krb5-32bit(x86-64)
+Requires: libharfbuzz0-32bit(x86-64)
+Requires: libICE6-32bit(x86-64)
+Requires: libicu49-32bit(x86-64)
+Requires: libjson0-32bit(x86-64)
+Requires: libkeyutils1-32bit(x86-64)
+Requires: libp11-kit0-32bit(x86-64)
+Requires: libpcre1-32bit(x86-64)
+Requires: libselinux1-32bit(x86-64)
+Requires: libSM6-32bit(x86-64)
+Requires: libsndfile1-32bit(x86-64)
+Requires: libtasn1-3-32bit(x86-64)
+Requires: libuuid1-32bit(x86-64)
+Requires: tcpd-32bit(x86-64)
+Requires: libXau6-32bit(x86-64)
+Requires: libxcb1-32bit(x86-64)
+Requires: libXcomposite1-32bit(x86-64)
+Requires: libXcursor1-32bit(x86-64)
+Requires: libXdamage1-32bit(x86-64)
+Requires: libXinerama1-32bit(x86-64)
+Requires: libXtst6-32bit(x86-64)
+Requires: libXxf86vm1-32bit(x86-64)
 %else
-Requires: Mesa
-Requires: mozilla-nss
-Requires: libcurl4 >= 7.16.2-1
-Requires: libogg0 >= 1.0
-Requires: libpixman-1-0 >= 0.24.4
-Requires: libSDL-1_2-0 >= 1.2.10
-Requires: libSDL2-2_0-0
-Requires: libtheora0 >= 1.0
-Requires: libvorbis0 >= 1.1.2
-Requires: glibc >= 2.15
-Requires: libcairo2 >= 1.6.0
-Requires: cups-libs >= 1.4.0
-Requires: libdbus-1-3 >= 1.2.14
-Requires: fontconfig >= 2.8.0
-Requires: libfreetype6 >= 2.3.9
-Requires: libgcc47 >= 4.1.1
-Requires: libgcrypt11 >= 1.4.5
-Requires: libgdk_pixbuf-2_0-0 >= 2.22.0
-Requires: libglib-2_0-0 >= 2.14.0
-Requires: libgtk-2_0-0 >= 2.24.0
-Requires: mozilla-nspr >= 1.8.0.10
-Requires: libopenal1-soft >= 1.13
-Requires: libpango-1_0-0 >= 1.22.0
-Requires: libpulse0 >= 0.99.1
-Requires: libstdc++47 >= 4.6
-Requires: libX11-6 >= 1.4.99.1
-Requires: libXext6-32bit
-Requires: libXfixes3-32bit
-Requires: libXi6 >= 1.2.99.4
-Requires: libXrandr2 >= 1.2.99.3
-Requires: libXrender1
-Requires: zlib >= 1.2.3.3
-Requires: Mesa-libIndirectGL1
-Requires: Mesa-libEGL1
-Requires: libatk-1_0-0
-Requires: libcares2
-Requires: libasound2
-Requires: libatk-1_0-0
-Requires: libavahi-client3
-Requires: libavahi-common3
-Requires: libcom_err2
-Requires: libdrm2
-Requires: libexpat1
-Requires: libffi47
-Requires: libFLAC8
-Requires: Mesa-libGL1
-Requires: libgcrypt11
-Requires: libgnutls28
-Requires: libgpg-error0
-Requires: libgsm1
-Requires: krb5
-Requires: libharfbuzz0
-Requires: libICE6
-Requires: libicu49
-Requires: libjson0
-Requires: libkeyutils1
-Requires: libp11-kit0
-Requires: libpcre1
-Requires: libselinux1
-Requires: libSM6
-Requires: libsndfile1
-Requires: libtasn1-3
-Requires: libuuid1
-Requires: tcpd
-Requires: libXau6
-Requires: libxcb1
-Requires: libXcomposite1
-Requires: libXcursor1
-Requires: libXdamage1
-Requires: libXinerama1
-Requires: libXtst6
-Requires: libXxf86vm1
+Requires: Mesa(x86-32)
+Requires: mozilla-nss(x86-32)
+Requires: libcurl4(x86-32) >= 7.16.2-1
+Requires: libogg0(x86-32) >= 1.0
+Requires: libpixman-1-0(x86-32) >= 0.24.4
+Requires: libSDL-1_2-0(x86-32) >= 1.2.10
+Requires: libSDL2-2_0-0(x86-32)
+Requires: libtheora0(x86-32) >= 1.0
+Requires: libvorbis0(x86-32) >= 1.1.2
+Requires: glibc(x86-32) >= 2.15
+Requires: libcairo2(x86-32) >= 1.6.0
+Requires: cups-libs(x86-32) >= 1.4.0
+Requires: libdbus-1-3(x86-32) >= 1.2.14
+Requires: fontconfig(x86-32) >= 2.8.0
+Requires: libfreetype6(x86-32) >= 2.3.9
+Requires: libgcc47(x86-32) >= 4.1.1
+Requires: libgcrypt11(x86-32) >= 1.4.5
+Requires: libgdk_pixbuf-2_0-0(x86-32) >= 2.22.0
+Requires: libglib-2_0-0(x86-32) >= 2.14.0
+Requires: libgtk-2_0-0(x86-32) >= 2.24.0
+Requires: mozilla-nspr(x86-32) >= 1.8.0.10
+Requires: libopenal1-soft(x86-32) >= 1.13
+Requires: libpango-1_0-0(x86-32) >= 1.22.0
+Requires: libpulse0(x86-32) >= 0.99.1
+Requires: libstdc++47(x86-32) >= 4.6
+Requires: libX11-6(x86-32) >= 1.4.99.1
+Requires: libXext6(x86-32)
+Requires: libXfixes3(x86-32)
+Requires: libXi6(x86-32) >= 1.2.99.4
+Requires: libXrandr2(x86-32) >= 1.2.99.3
+Requires: libXrender1(x86-32)
+Requires: zlib(x86-32) >= 1.2.3.3
+Requires: Mesa-libIndirectGL1(x86-32)
+Requires: Mesa-libEGL1(x86-32)
+Requires: libatk-1_0-0(x86-32)
+Requires: libcares2(x86-32)
+Requires: libasound2(x86-32)
+Requires: libatk-1_0-0(x86-32)
+Requires: libavahi-client3(x86-32)
+Requires: libavahi-common3(x86-32)
+Requires: libcom_err2(x86-32)
+Requires: libdrm2(x86-32)
+Requires: libexpat1(x86-32)
+Requires: libffi47(x86-32)
+Requires: libFLAC8(x86-32)
+Requires: Mesa-libGL1(x86-32)
+Requires: libgcrypt11(x86-32)
+Requires: libgnutls28(x86-32)
+Requires: libgpg-error0(x86-32)
+Requires: libgsm1(x86-32)
+Requires: krb5(x86-32)
+Requires: libharfbuzz0(x86-32)
+Requires: libICE6(x86-32)
+Requires: libicu49(x86-32)
+Requires: libjson0(x86-32)
+Requires: libkeyutils1(x86-32)
+Requires: libp11-kit0(x86-32)
+Requires: libpcre1(x86-32)
+Requires: libselinux1(x86-32)
+Requires: libSM6(x86-32)
+Requires: libsndfile1(x86-32)
+Requires: libtasn1-3(x86-32)
+Requires: libuuid1(x86-32)
+Requires: tcpd(x86-32)
+Requires: libXau6(x86-32)
+Requires: libxcb1(x86-32)
+Requires: libXcomposite1(x86-32)
+Requires: libXcursor1(x86-32)
+Requires: libXdamage1(x86-32)
+Requires: libXinerama1(x86-32)
+Requires: libXtst6(x86-32)
+Requires: libXxf86vm1(x86-32)
 %endif
-Requires: libjpeg-turbo
 %endif
 
 
