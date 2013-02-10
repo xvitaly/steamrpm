@@ -1,6 +1,6 @@
 Name: steam
-Version: 1.0.22
-Release: 2
+Version: 1.0.25
+Release: 1
 Group: Applications/Games
 BuildArch: noarch
 Source: steam.tar.gz
