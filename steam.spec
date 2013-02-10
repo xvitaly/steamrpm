@@ -11,7 +11,6 @@ BuildRoot: %{_tmppath}/%{name}-root
 Vendor: Valve
 
 # Distribution independent dependecies...
-Requires: libjpeg-turbo
 
 # Dependencies for Fedora/CentOS/RHEL (taken from SPEC by Tom Callaway <spot@fedoraproject.org>)...
 %if 0%{?fedora_version} || 0%{?rhel_version} || 0%{?centos_version}
@@ -83,7 +82,6 @@ Requires: libXdamage(x86-32)
 Requires: libXinerama(x86-32)
 Requires: libXtst(x86-32)
 Requires: libXxf86vm(x86-32)
-Requires: libjpeg-turbo(x86-32)
 %if 0%{?fedora} >= 18
 Requires: libpng12(x86-32) >= 1.2.13
 Requires: systemd-libs(x86-32)
