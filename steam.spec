@@ -13,10 +13,10 @@ Vendor: Valve
 # Setting macro...
 %define pf %{nil}
 %ifarch x86_64
-  %if 0%{?suse_version}
+  %if 0%{?suse_version} || 0%{?sles_version}
     %define pf -32bit
   %endif
-  %if 0%{?fedora}
+  %if 0%{?fedora_version} || 0%{?rhel_version} || 0%{?centos_version}
     %define pf (x86-32)
   %endif
 %endif
