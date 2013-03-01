@@ -200,8 +200,8 @@ rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/
 cp -fpr %_builddir/steam/* %{buildroot}
 rm -rf %{buildroot}/etc/apt/
+rm -f %{buildroot}/usr/bin/steamdeps
 chmod +x %{buildroot}/usr/bin/steam
-chmod +x %{buildroot}/usr/bin/steamdeps
 find %{buildroot} -not -type d -printf "/%%P\n" | sed '/\/man\//s/$/\*/' > manifest
 
 %files -f manifest
