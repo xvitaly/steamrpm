@@ -1,5 +1,5 @@
 Name: steam
-Version: 1.0.0.34
+Version: 1.0.0.36
 Release: 1
 Group: Applications/Games
 BuildArch: noarch
