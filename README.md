@@ -68,17 +68,31 @@ rpmbuild -bb --clean steam.spec
 
 You will get Steam RPM Package for GNU/Linux in **~/rpmbuild/RPMS/i686/** (on 32-bit systems) or in **~/rpmbuild/RPMS/x86_64/** (on 64-bit).
 
-Step 7
+Step 7.1 (32-bit)
 =======
 
-Install package. On Fedora/CentOS/RHEL:
+Install package. On Fedora/CentOS/RHEL (32-bit):
 
 ```
-sudo yum -y install ~/rpmbuild/RPMS/noarch/steam*
+sudo yum -y install ~/rpmbuild/RPMS/i686/steam*
 ```
 
-On openSUSE:
+On openSUSE (32-bit):
 
 ```
-sudo zypper install ~/rpmbuild/RPMS/noarch/steam*.rpm
+sudo zypper install ~/rpmbuild/RPMS/i686/steam*.rpm
+```
+
+Step 7.2 (64-bit)
+=======
+Install package. On Fedora/CentOS/RHEL (64-bit):
+
+```
+sudo yum -y install ~/rpmbuild/RPMS/x86_64/steam*
+```
+
+On openSUSE (64-bit):
+
+```
+sudo zypper install ~/rpmbuild/RPMS/x86_64/steam*.rpm
 ```
