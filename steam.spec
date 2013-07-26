@@ -1,8 +1,7 @@
 Name: steam
-Version: 1.0.0.36
+Version: 1.0.0.39
 Release: 1
 Group: Applications/Games
-BuildArch: noarch
 Source: steam.tar.gz
 Summary: Steam Client
 URL: http://www.steampowered.com/
@@ -16,7 +15,7 @@ Vendor: Valve
   %if 0%{?suse_version} || 0%{?sles_version}
     %define dep_postfix -32bit
   %endif
-  %if 0%{?fedora_version} || 0%{?rhel_version} || 0%{?centos_version}
+  %if 0%{?fedora} || 0%{?fedora_version} || 0%{?rhel_version} || 0%{?centos_version}
     %define dep_postfix (x86-32)
   %endif
 %endif
@@ -29,7 +28,7 @@ Requires: openal-soft >= 1.13
 Requires: zlib%{dep_postfix} >= 1.2.3.3
 
 # Dependencies for Fedora/CentOS/RHEL (taken from SPEC by Tom Callaway <spot@fedoraproject.org>)...
-%if 0%{?fedora_version} || 0%{?rhel_version} || 0%{?centos_version}
+%if 0%{?fedora} || 0%{?fedora_version} || 0%{?rhel_version} || 0%{?centos_version}
 Requires: libcurl%{dep_postfix} >= 7.16.2-1
 Requires: libogg%{dep_postfix} >= 1.0
 Requires: pixman%{dep_postfix} >= 0.24.4
@@ -66,7 +65,6 @@ Requires: libdrm%{dep_postfix}
 Requires: mesa-libEGL%{dep_postfix}
 Requires: expat%{dep_postfix}
 Requires: libffi%{dep_postfix}
-Requires: flac%{dep_postfix}
 Requires: mesa-libGL%{dep_postfix}
 Requires: libgcrypt%{dep_postfix}
 Requires: gnutls%{dep_postfix}
@@ -102,6 +100,7 @@ Requires: libudev%{dep_postfix}
 %endif
 %if 0%{?fedora} == 17
 Requires: libpng-compat%{dep_postfix} >= 1.2.13
+Requires: flac%{dep_postfix}
 %endif
 %if 0%{?fedora} <= 16
 Requires: libpng >= 1.2.13
@@ -128,16 +127,13 @@ Requires: libvorbis0%{dep_postfix} >= 1.1.2
 Requires: libcairo2%{dep_postfix} >= 1.6.0
 Requires: libdbus-1-3%{dep_postfix} >= 1.2.14
 Requires: libfreetype6%{dep_postfix} >= 2.3.9
-Requires: libgcc47%{dep_postfix} >= 4.1.1
 Requires: libgcrypt11%{dep_postfix} >= 1.4.5
 Requires: libgdk_pixbuf-2_0-0%{dep_postfix} >= 2.22.0
 Requires: libglib-2_0-0%{dep_postfix} >= 2.14.0
 Requires: libgtk-2_0-0%{dep_postfix} >= 2.24.0
 Requires: mozilla-nspr%{dep_postfix} >= 1.8.0.10
-Requires: libopenal1-soft%{dep_postfix} >= 1.13
 Requires: libpango-1_0-0%{dep_postfix} >= 1.22.0
 Requires: libpulse0%{dep_postfix} >= 0.99.1
-Requires: libstdc++47%{dep_postfix} >= 4.6
 Requires: libX11-6%{dep_postfix} >= 1.4.99.1
 Requires: libXext6%{dep_postfix}
 Requires: libXfixes3%{dep_postfix}
@@ -183,6 +179,16 @@ Requires: libXdamage1%{dep_postfix}
 Requires: libXinerama1%{dep_postfix}
 Requires: libXtst6%{dep_postfix}
 Requires: libXxf86vm1%{dep_postfix}
+%if 0%{?suse_version} >= 1230
+Requires: libgcc_s1%{dep_postfix} >= 4.1.1
+Requires: libopenal1%{dep_postfix} >= 1.13
+Requires: libstdc++6%{dep_postfix} >= 4.6
+%endif
+%if 0%{?suse_version} < 1230
+Requires: libgcc47%{dep_postfix} >= 4.1.1
+Requires: libopenal1-soft%{dep_postfix} >= 1.13
+Requires: libstdc++47%{dep_postfix} >= 4.6
+%endif
 %endif
 
 
@@ -206,3 +212,7 @@ find %{buildroot} -not -type d -printf "/%%P\n" | sed '/\/man\//s/$/\*/' > manif
 
 %files -f manifest
 %defattr(-,root,root)
+
+%changelog
+* Fri Jul 26 2013 V1TSK <vitaly@easycoding.org>
+- Updated to latest Steam version. Fixed build under new versions of Fedora and openSUSE.
