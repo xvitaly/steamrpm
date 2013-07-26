@@ -66,7 +66,7 @@ cd ~
 rpmbuild -bb --clean steam.spec
 ```
 
-You will get Steam RPM Package for GNU/Linux in **~/rpmbuild/RPMS/noarch/**.
+You will get Steam RPM Package for GNU/Linux in **~/rpmbuild/RPMS/i686/** (on 32-bit systems) or in **~/rpmbuild/RPMS/x86_64/** (on 64-bit).
 
 Step 7
 =======
