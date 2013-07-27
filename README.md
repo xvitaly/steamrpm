@@ -1,6 +1,13 @@
+Fully automatic build
+========
+Just open terminal and execute this commands:
+```
+wget https://github.com/xvitaly/steamrpm/raw/master/genrpm.sh && chmod +x genrpm.sh && ./genrpm.sh
+```
+Then go to Step 7.
+
 Step 1
 ========
-
 Download original package for Ubuntu:
 
 ```
@@ -77,7 +84,7 @@ Install package. On Fedora/CentOS/RHEL:
 sudo yum -y install ~/rpmbuild/RPMS/`uname -m`/steam*
 ```
 
-On openSUSE (32-bit):
+On openSUSE:
 
 ```
 sudo zypper install ~/rpmbuild/RPMS/`uname -m`/steam*.rpm
