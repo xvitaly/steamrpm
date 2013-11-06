@@ -1,5 +1,5 @@
 Name: steam
-Version: 1.0.0.39
+Version: 1.0.0.43
 Release: 1
 Group: Applications/Games
 Source: steam.tar.gz
@@ -214,5 +214,8 @@ find %{buildroot} -not -type d -printf "/%%P\n" | sed '/\/man\//s/$/\*/' > manif
 %defattr(-,root,root)
 
 %changelog
+* Wed Nov 06 2013 V1TSK <vitaly@easycoding.org>
+- Updated to latest Steam version (r43).
+
 * Fri Jul 26 2013 V1TSK <vitaly@easycoding.org>
 - Updated to latest Steam version. Fixed build under new versions of Fedora and openSUSE.
