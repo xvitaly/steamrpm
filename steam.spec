@@ -92,6 +92,9 @@ Requires: libXdamage%{dep_postfix}
 Requires: libXinerama%{dep_postfix}
 Requires: libXtst%{dep_postfix}
 Requires: libXxf86vm%{dep_postfix}
+Requires: SDL2%{dep_postfix}
+Requires: DevIL%{dep_postfix}
+Requires: SDL_mixer%{dep_postfix}
 %if 0%{?fedora} >= 18
 Requires: libpng12%{dep_postfix} >= 1.2.13
 Requires: systemd-libs%{dep_postfix}
