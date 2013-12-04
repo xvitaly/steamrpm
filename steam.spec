@@ -1,5 +1,5 @@
 Name: steam
-Version: 1.0.0.43
+Version: 1.0.0.45
 Release: 1
 Group: Applications/Games
 Source: steam.tar.gz
