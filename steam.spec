@@ -118,7 +118,7 @@ Requires: libwayland-server%{dep_postfix}
 
 # Dependencies for openSUSE and SLES...
 %if 0%{?suse_version} || 0%{?sles_version}
-Requires: Mesa%%{dep_postfix}
+Requires: Mesa%{dep_postfix}
 Requires: mozilla-nss%{dep_postfix}
 Requires: libcurl4%{dep_postfix} >= 7.16.2-1
 Requires: libogg0%{dep_postfix} >= 1.0
