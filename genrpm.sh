@@ -22,7 +22,7 @@ if [ -f "$TMPATH/steam.deb" ]; then
     cp -f data.tar.gz ~/rpmbuild/SOURCES/steam.tar.gz
     
     echo Downloading SPEC file...
-    wget https://github.com/xvitaly/steamrpm/raw/master/steam.spec -O $TMPATH/steam.spec 2> /dev/null
+    wget --no-check-certificate https://github.com/xvitaly/steamrpm/raw/master/steam.spec -O $TMPATH/steam.spec 2> /dev/null
     
     if [ -f "$TMPATH/steam.spec" ]; then
       
