@@ -1,5 +1,5 @@
 Name: steam
-Version: 1.0.0.47
+Version: 1.0.0.48
 Release: 1
 Group: Applications/Games
 Source: steam.tar.gz
@@ -217,6 +217,9 @@ find %{buildroot} -not -type d -printf "/%%P\n" | sed '/\/man\//s/$/\*/' > manif
 %defattr(-,root,root)
 
 %changelog
+* Mon Aug 18 2014 V1TSK <vitaly@easycoding.org>
+- Updated to latest Steam version (r48).
+
 * Wed Nov 06 2013 V1TSK <vitaly@easycoding.org>
 - Updated to latest Steam version (r43).
 
