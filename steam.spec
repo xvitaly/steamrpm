@@ -118,70 +118,51 @@ Requires: libwayland-server%{dep_postfix}
 
 # Dependencies for openSUSE and SLES...
 %if 0%{?suse_version} || 0%{?sles_version}
-Requires: Mesa%{dep_postfix}
-Requires: mozilla-nss%{dep_postfix}
-Requires: libcurl4%{dep_postfix} >= 7.16.2-1
-Requires: libogg0%{dep_postfix} >= 1.0
-Requires: libpixman-1-0%{dep_postfix} >= 0.24.4
+Requires: Mesa-libGL1%{dep_postfix}
+Requires: alsa%{dep_postfix} >= 1.0.23
+Requires: alsa-devel%{dep_postfix} >= 1.0.23
+Requires: dbus-1-glib%{dep_postfix}
+Requires: gtk2-engine-oxygen%{dep_postfix}
 Requires: libSDL-1_2-0%{dep_postfix} >= 1.2.10
-Requires: libSDL2-2_0-0%{dep_postfix}
-Requires: libtheora0%{dep_postfix} >= 1.0
-Requires: libvorbis0%{dep_postfix} >= 1.1.2
-Requires: libcairo2%{dep_postfix} >= 1.6.0
-Requires: libdbus-1-3%{dep_postfix} >= 1.2.14
-Requires: libfreetype6%{dep_postfix} >= 2.3.9
-Requires: libgcrypt11%{dep_postfix} >= 1.4.5
-Requires: libgdk_pixbuf-2_0-0%{dep_postfix} >= 2.22.0
-Requires: libglib-2_0-0%{dep_postfix} >= 2.14.0
-Requires: libgtk-2_0-0%{dep_postfix} >= 2.24.0
-Requires: mozilla-nspr%{dep_postfix} >= 1.8.0.10
-Requires: libpango-1_0-0%{dep_postfix} >= 1.22.0
-Requires: libpulse0%{dep_postfix} >= 0.99.1
 Requires: libX11-6%{dep_postfix} >= 1.4.99.1
+Requires: libXdmcp6%{dep_postfix}
 Requires: libXext6%{dep_postfix}
 Requires: libXfixes3%{dep_postfix}
 Requires: libXi6%{dep_postfix} >= 1.2.99.4
 Requires: libXrandr2%{dep_postfix} >= 1.2.99.3
 Requires: libXrender1%{dep_postfix}
-Requires: Mesa-libIndirectGL1%{dep_postfix}
-Requires: Mesa-libEGL1%{dep_postfix}
-Requires: libcares2%{dep_postfix}
-Requires: libasound2%{dep_postfix}
 Requires: libatk-1_0-0%{dep_postfix}
-Requires: libavahi-client3%{dep_postfix}
-Requires: libavahi-common3%{dep_postfix}
-Requires: libcom_err2%{dep_postfix}
-Requires: libdrm2%{dep_postfix}
-Requires: libexpat1%{dep_postfix}
-Requires: libffi47%{dep_postfix}
-Requires: libFLAC8%{dep_postfix}
-Requires: Mesa-libGL1%{dep_postfix}
-Requires: libgcrypt11%{dep_postfix}
-Requires: libgnutls28%{dep_postfix}
-Requires: libgpg-error0%{dep_postfix}
-Requires: libgsm1%{dep_postfix}
-Requires: krb5%{dep_postfix}
-Requires: libharfbuzz0%{dep_postfix}
-Requires: libICE6%{dep_postfix}
-Requires: libicu49%{dep_postfix}
-Requires: libjson0%{dep_postfix}
-Requires: libkeyutils1%{dep_postfix}
-Requires: libp11-kit0%{dep_postfix}
-Requires: libpcre1%{dep_postfix}
-Requires: libselinux1%{dep_postfix}
-Requires: libSM6%{dep_postfix}
-Requires: libsndfile1%{dep_postfix}
-Requires: libtasn1-3%{dep_postfix}
-Requires: libuuid1%{dep_postfix}
-Requires: tcpd%{dep_postfix}
-Requires: libXau6%{dep_postfix}
-Requires: libxcb1%{dep_postfix}
-Requires: libXcomposite1%{dep_postfix}
-Requires: libXcursor1%{dep_postfix}
-Requires: libXdamage1%{dep_postfix}
-Requires: libXinerama1%{dep_postfix}
-Requires: libXtst6%{dep_postfix}
-Requires: libXxf86vm1%{dep_postfix}
+Requires: libcairo2%{dep_postfix} >= 1.6.0
+Requires: libcurl4%{dep_postfix} >= 7.16.2-1
+Requires: libdbus-1-3%{dep_postfix} >= 1.2.14
+Requires: libfreetype6%{dep_postfix} >= 2.3.9
+%if 0%{?suse_version} >= 1320
+Requires: libgcrypt20%{dep_postfix} >= 1.6.1
+%else
+Requires: libgcrypt11%{dep_postfix} >= 1.4.5
+%endif
+Requires: libgdk_pixbuf-2_0-0%{dep_postfix} >= 2.22.0
+Requires: libglib-2_0-0%{dep_postfix} >= 2.14.0
+Requires: libgmodule-2_0-0%{dep_postfix}
+Requires: libgobject-2_0-0%{dep_postfix}
+Requires: libgtk-2_0-0%{dep_postfix} >= 2.24.0
+Requires: libnm-glib4%{dep_postfix}
+Requires: libnm-util2%{dep_postfix}
+Requires: libogg0%{dep_postfix} >= 1.0
+Requires: libpango-1_0-0%{dep_postfix} >= 1.22.0
+Requires: libpixman-1-0%{dep_postfix} >= 0.24.4
+Requires: libpng12-0%{dep_postfix} >= 1.2.13
+Requires: libpulse0%{dep_postfix} >= 0.99.1
+Requires: libtheora0%{dep_postfix} >= 1.0
+Requires: libvorbis0%{dep_postfix} >= 1.1.2
+Requires: mozilla-nspr%{dep_postfix} >= 1.8.0.10
+Requires: mozilla-nss%{dep_postfix} >= 3.12.3
+Requires: cups-libs%{dep_postfix} >= 1.4.0
+Requires: fontconfig%{dep_postfix} >= 2.8.0
+Requires: glibc%{dep_postfix} >= 2.15
+Requires: openal-soft >= 1.13
+Requires: zlib%{dep_postfix} >= 1.2.3.3
+# openSUSE 12.3 changed the name of some libs
 %if 0%{?suse_version} >= 1230
 Requires: libgcc_s1%{dep_postfix} >= 4.1.1
 Requires: libopenal1%{dep_postfix} >= 1.13
@@ -192,6 +173,11 @@ Requires: libgcc47%{dep_postfix} >= 4.1.1
 Requires: libopenal1-soft%{dep_postfix} >= 1.13
 Requires: libstdc++47%{dep_postfix} >= 4.6
 %endif
+Requires: curl
+Requires: xz
+Requires: zenity
+Requires: libxcb-dri2-0%{dep_postfix}
+Requires: libxcb-glx0%{dep_postfix}
 %endif
 
 
@@ -217,6 +203,9 @@ find %{buildroot} -not -type d -printf "/%%P\n" | sed '/\/man\//s/$/\*/' > manif
 %defattr(-,root,root)
 
 %changelog
+* Tue Oct 08 2015 V1TSK <vitaly@easycoding.org>
+- Updated to latest Steam version (r50). Updated deps.
+
 * Sat Dec 27 2014 V1TSK <vitaly@easycoding.org>
 - Updated to latest Steam version (r49).
 
