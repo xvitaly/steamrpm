@@ -206,6 +206,9 @@ find %{buildroot} -not -type d -printf "/%%P\n" | sed '/\/man\//s/$/\*/' > manif
 %defattr(-,root,root)
 
 %changelog
+* Thu Nov 12 2015 V1TSK <vitaly@easycoding.org>
+- Fixed build under Fedora 23+.
+
 * Thu Oct 08 2015 V1TSK <vitaly@easycoding.org>
 - Updated to latest Steam version (r50). Updated deps.
 
