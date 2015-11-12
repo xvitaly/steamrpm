@@ -1,3 +1,6 @@
+# Disabling debug package...
+%define debug_package %{nil}
+
 Name: steam
 Version: 1.0.0.50
 Release: 1
