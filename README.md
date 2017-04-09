@@ -1,91 +1,22 @@
-Fully automatic build
+About
 ========
-Just open terminal and execute this commands:
-```
-wget https://github.com/xvitaly/steamrpm/raw/master/genrpm.sh && chmod +x genrpm.sh && ./genrpm.sh
-```
-Then go to Step 7.
+This package is no longer supported. Use `steam` package from RPMFusion on Fedora and from main repositories on openSUSE.
 
-Step 1
+Installation on Fedora
 ========
-Download original package for Ubuntu:
-
-```
-cd ~
-wget http://media.steampowered.com/client/installer/steam.deb
+Add [RPMFusion repositories](https://rpmfusion.org/):
+```bash
+sudo dnf install --nogpgcheck https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 ```
 
-Step 2
-=======
-Unpack Ubuntu package by using **ar** tool:
-
-```
-cd ~
-ar vx steam.deb
+Install [steam package](http://koji.rpmfusion.org/koji/packageinfo?packageID=413):
+```bash
+sudo dnf install steam
 ```
 
-You will get three files: **debian-binary**, **control.tar.gz** and **data.tar.gz**. 
-We need only **data.tar.gz**. All others can be deleted.
-
-Step 3
-=======
-
-Install RPMBuild. On Fedora/CentOS/RHEL:
-
-```
-sudo yum -y install rpm-build
-```
-
-On openSUSE:
-
-```
-sudo zypper install rpmbuild
-```
-
-Step 4
-=======
-
-Rename and copy **data.tar.gz** to rpmbuild working directory:
-
-```
-cd ~
-mkdir -p ~/rpmbuild/SOURCES/
-cp -f data.tar.gz ~/rpmbuild/SOURCES/steam.tar.gz
-```
-
-Step 5
-=======
-
-Download spec file for rpmbuild:
-
-```
-cd ~
-wget https://github.com/xvitaly/steamrpm/raw/master/steam.spec
-```
-
-Step 6
-=======
-
-Run rpmbuild:
-
-```
-cd ~
-rpmbuild -bb --clean steam.spec
-```
-
-You will get Steam RPM Package for GNU/Linux in **~/rpmbuild/RPMS/i686/** (on 32-bit systems) or in **~/rpmbuild/RPMS/x86_64/** (on 64-bit).
-
-Step 7
-=======
-
-Install package. On Fedora/CentOS/RHEL:
-
-```
-sudo yum -y install ~/rpmbuild/RPMS/`uname -m`/steam*
-```
-
-On openSUSE:
-
-```
-sudo zypper install ~/rpmbuild/RPMS/`uname -m`/steam*.rpm
+Installation on openSUSE
+========
+Install [steam package](https://software.opensuse.org/package/steam):
+```bash
+sudo zypper in steam
 ```
