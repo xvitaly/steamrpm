@@ -18,5 +18,5 @@ Installation on openSUSE
 ========
 Install [steam package](https://software.opensuse.org/package/steam):
 ```bash
-sudo zypper in steam
+sudo zypper install steam
 ```
